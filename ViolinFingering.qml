@@ -6,15 +6,24 @@
 //  Copyright (c) 2014 lalov
 //                2016 HansPog & Christophe Corsi
 //                2019 Johan Temmerman (jeetee)
+//                2023 Joachim Schmitz (Jojo-Schmitz)
 //=============================================================================
 import QtQuick 2.2
 import MuseScore 3.0
 
 MuseScore {
 	menuPath: "Plugins.Violin Fingering"
-	version: "3.1"
+	version: "4.0"
 	description: "Adds fingering for Violin and Viola to the score"
 	requiresScore: true
+
+	Component.onCompleted : {
+		if (mscoreMajorVersion >= 4) {
+			title = qsTr("Violin Fingering") ;
+			// thumbnailName = ".png";
+ 			// categoryCode = "some_category";
+ 		}
+	}
 
 	onRun: {
 		var textposition = 0.65;
@@ -47,6 +56,8 @@ MuseScore {
 			endStaff = cursor.staffIdx;
 		}
 		console.log(startStaff + " - " + endStaff + " - " + endTick)
+
+		curScore.startCmd()
 
 		//loop over the selection
 		for (var staff = startStaff; staff <= endStaff; staff++) {
@@ -93,11 +104,13 @@ MuseScore {
 			} // end for voice
 		} // end for staff
 
-		Qt.quit();
+		curScore.endCmd()
+
+		quit();
 	}
 
 	// match note with fingering text
-    function addFingerText(notes, text) {
+	function addFingerText(notes, text) {
 		var fingerings = [ 
 			"0\nC", "1L\nC", "1\nC", "2L\nC", "2\nC", "3\nC", "3H\nC", 
 			"0\nG", "1L\nG", "1\nG", "2L\nG", "2\nG", "3\nG", "3H\nG", 
