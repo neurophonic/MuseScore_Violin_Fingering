@@ -13,17 +13,12 @@ import MuseScore 3.0
 
 MuseScore {
 	menuPath: "Plugins.Violin Fingering"
+	title: "Violin Fingering"
 	version: "4.0"
 	description: "Adds fingering for Violin and Viola to the score"
+	thumbnailName: "violin-fingering.png"
+	categoryCode: "composing-arranging-tools"
 	requiresScore: true
-
-	Component.onCompleted : {
-		if (mscoreMajorVersion >= 4) {
-			title = qsTr("Violin Fingering") ;
-			// thumbnailName = ".png";
- 			// categoryCode = "some_category";
- 		}
-	}
 
 	onRun: {
 		var textposition = 0.65;
