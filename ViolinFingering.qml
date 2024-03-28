@@ -7,14 +7,15 @@
 //                2016 HansPog & Christophe Corsi
 //                2019 Johan Temmerman (jeetee)
 //                2023 Joachim Schmitz (Jojo-Schmitz)
+//				  2024 Nathan Pavey 
 //=============================================================================
 import QtQuick 2.2
 import MuseScore 3.0
 
 MuseScore {
-	menuPath: "Plugins.Violin Fingering"
-	title: "Violin Fingering"
-	version: "4.0"
+	menuPath: "Plugins.Violin Fingering Modified"
+	title: "Violin Fingering Modified"
+	version: "4.0.1"
 	description: "Adds fingering for Violin and Viola to the score"
 	thumbnailName: "violin-fingering.png"
 	categoryCode: "composing-arranging-tools"
@@ -107,11 +108,11 @@ MuseScore {
 	// match note with fingering text
 	function addFingerText(notes, text) {
 		var fingerings = [ 
-			"0\nC", "1L\nC", "1\nC", "2L\nC", "2\nC", "3\nC", "3H\nC", 
-			"0\nG", "1L\nG", "1\nG", "2L\nG", "2\nG", "3\nG", "3H\nG", 
-			"0\nD", "1L\nD", "1\nD", "2L\nD", "2\nD", "3\nD", "3H\nD", 
-			"0\nA", "1L\nA", "1\nA", "2L\nA", "2\nA", "3\nA", "3H\nA", 
-			"0\nE", "1L\nE", "1\nE", "2L\nE", "2\nE", "3\nE", "3H\nE", "4\nE", 
+			"0", "①", "1", "②", "2", "3", "3H", 
+			"0", "①", "1", "②", "2", "3", "3H", 
+			"0", "①", "1", "②", "2", "3", "3H", 
+			"0", "①", "1", "②", "2", "3", "3H", 
+			"0", "①", "1", "②", "2", "3", "3H", "4", 
 			"1", "1", "2", "2", "3", "3",
 		]
 		var tuning = fingerings
